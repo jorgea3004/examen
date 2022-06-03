@@ -92,13 +92,16 @@
                 background-color: #fff;
                 cursor: pointer;
             }
+            .selectedoption {
+                background-color: gray;
+            }
         </style>
     </head>
     <body class="antialiased">
         <h1>Bienvenido {{session('username')}}</h1>
         <div>
             <ul class="menu">
-                <li><a href="{{route('empleados.index')}}">Usuarios</a></li>
+                <li><a href="{{route('empleados.index')}}">Empleados</a></li>
                 <li><a href="{{route('calculosalario.index',0)}}">Calculo Salario</a></li>
             </ul>
         </div>

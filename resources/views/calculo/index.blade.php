@@ -4,9 +4,9 @@
        <h1>Calculo de salarios de Usuarios {{$msg}} a {{$mult}} días</h1>
         <div>
             <ul class="menu" >
-                <li><a href="{{route('calculosalario.index',0)}}">Semanal</a></li>
-                <li><a href="{{route('calculosalario.index',1)}}">Quincenal</a></li>
-                <li><a href="{{route('calculosalario.index',2)}}">Mensual</a></li>
+                <li><a href="{{route('calculosalario.index',0)}}" class="{{$clases[0]}}">Semanal</a></li>
+                <li><a href="{{route('calculosalario.index',1)}}" class="{{$clases[1]}}">Quincenal</a></li>
+                <li><a href="{{route('calculosalario.index',2)}}" class="{{$clases[2]}}">Mensual</a></li>
             </ul>
         </div>
        <div>
@@ -16,7 +16,7 @@
                 <th>EMAIL</th>
                 <th>PUESTO</th>
                 <th>ESTATUS</th>
-                <th>SALARIO {{$msg}}</th>
+                <th>SALARIO {{strtoupper($msg)}}</th>
             </thead>
             <tbody>
             @foreach($usuarios as $item)

@@ -25,10 +25,12 @@ class CalculoSalarioController extends Controller
                 break;
             
             default:
-                $msg = '';
-                $mult = 1;
+                $msg = 'Semanal';
+                $mult = 5;
                 break;
         }
-        return view('calculo/index', compact('usuarios', 'msg', 'mult'));
+        $clases = ['','',''];
+        $clases[$calculo] = 'selectedoption';
+        return view('calculo/index', compact('usuarios', 'msg', 'mult', 'clases'));
     }
 }
