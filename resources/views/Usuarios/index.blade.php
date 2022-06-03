@@ -18,7 +18,7 @@
                 <tr>
                     <td>{{$item->name . " " . $item->lastname}}</td>
                     <td>{{$item->email}}</td>
-                    <td>{{$item->salary}}</td>
+                    <td>{{number_format($item->salary, 2)}}</td>
                     @if($item->charge == 1)
                     <td>Operador</td>
                     @elseif($item->charge == 2)

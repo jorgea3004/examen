@@ -39,7 +39,7 @@
                     @elseif($item->status == 2)
                     <td>Suspension</td>
                     @endif
-                    <td>{{$item->salary}} => {{$item->salary*$mult}}</td>
+                    <td>{{number_format($item->salary, 2)}} => {{number_format($item->salary*$mult, 2)}}</td>
                 </tr>
             @endforeach
             </tbody>
