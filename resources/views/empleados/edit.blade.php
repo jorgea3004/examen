@@ -49,12 +49,9 @@
                      <ul>
                             <li>Puesto</li>
                             <li><select id="charge" name="charge">
-                                   <option value="1" {{old('charge', $empleados->charge) == 1 ? 'selected' : '' }} >Operador</option>
-                                   <option value="2" {{old('charge', $empleados->charge) == 2 ? 'selected' : '' }} >Gerente</option>
-                                   <option value="3" {{old('charge', $empleados->charge) == 3 ? 'selected' : '' }} >Lider de Proyecto</option>
-                                   <option value="4" {{old('charge', $empleados->charge) == 4 ? 'selected' : '' }} >Manager</option>
-                                   <option value="5" {{old('charge', $empleados->charge) == 5 ? 'selected' : '' }} >Telefonista</option>
-                                   <option value="6" {{old('charge', $empleados->charge) == 6 ? 'selected' : '' }} >Ventas</option>
+                                   @foreach($charges as $item)
+                                   <option value="{{$item->title}}" {{old('charge', $empleados->charge) == $item->id ? 'selected' : '' }} >{{$item->title}}</option>
+                                   @endforeach
                             </select>
                             </li>
                      </ul>

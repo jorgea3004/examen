@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Charges;
 use App\Models\Employees;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class EmpleadosController extends Controller
     }
 
     public function create(){
-        return view('empleados/new');
+        $charges = Charges::all();
+        return view('empleados/new', compact('charges'));
     }
 
     public function store(Request $request){
@@ -39,8 +41,9 @@ class EmpleadosController extends Controller
     }
 
     public function edit($id){
+        $charges = Charges::all();
         $empleados = Employees::find($id);
-        return view('empleados/edit',compact('empleados'));
+        return view('empleados/edit',compact('empleados','charges'));
     }
     public function update(Request $request, Employees $empleado){
         $empleado->name = $request->nombre;

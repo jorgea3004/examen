@@ -2,13 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Charges;
 use App\Models\Employees;
 use Illuminate\Http\Request;
 
 class CalculoSalarioController extends Controller
 {
     public function index($calculo){
-        $usuarios = Employees::all();
+        //$usuarios = Employees::all();
+        $usuarios = DB::table('employees')
+            ->join('charges', 'charges.id', '=', 'employees.charge')
+            ->select('employees.*', 'charges.title')
+            ->get();
         //echo "string: ".$calculo."";exit();
         switch ($calculo) {
             case 0:

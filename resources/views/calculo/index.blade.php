@@ -23,19 +23,7 @@
                 <tr>
                     <td>{{$item->name . " " . $item->lastname}}</td>
                     <td>{{$item->email}}</td>
-                    @if($item->charge == 1)
-                    <td>Operador</td>
-                    @elseif($item->charge == 2)
-                    <td>Gerente</td>
-                    @elseif($item->charge == 3)
-                    <td>Lider de Proyecto</td>
-                    @elseif($item->charge == 4)
-                    <td>Manager</td>
-                    @elseif($item->charge == 5)
-                    <td>Telefonista</td>
-                    @elseif($item->charge == 6)
-                    <td>Ventas</td>
-                    @endif
+                    <td>{{$item->title}}</td>
                     @if($item->status == 0)
                     <td>Inactivo</td>
                     @elseif($item->status == 1)
