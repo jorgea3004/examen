@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Users;
+use App\Models\Employees;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,17 +23,16 @@ class HomeController extends Controller
             'password' => 'required|max:10'
         ]);
         $email =$request->email;
-        $usuarios = Users::where('email',$email)->where('password',$request->password)->where('status',1)->first();
-        //var_dump($usuarios);exit();
+        $empleados = Employees::where('email',$email)->where('password',$request->password)->where('status',1)->first();
         $msg='';
-        if ($usuarios===NULL) {
+        if ($empleados===NULL) {
             //$msg='Usuario o password no validos.';
             session()->forget('msg');
             session(['msg' => 'Usuario o password no validos.']);
             return redirect()->route('home.index');
         } else {
-            session(['username' => $usuarios->name . " " . $usuarios->lastname]);
-            return redirect()->route('usuarios.index');
+            session(['username' => $empleados->name . " " . $empleados->lastname]);
+            return redirect()->route('empleados.index');
         }
         
 

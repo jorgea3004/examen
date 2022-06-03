@@ -1,10 +1,10 @@
 @extends('layouts.plantillalogin')
-@section('title', 'Listado de Usuarios')
+@section('title', 'Listado de Empleados')
 @section('content')
-       <h1>Listado de Usuarios</h1>
+       <h1>Listado de Empleados</h1>
         <div>
             <ul class="menu" >
-                <li><a href="{{route('usuarios.new')}}">Nuevo</a></li>
+                <li><a href="{{route('empleados.new')}}">Nuevo</a></li>
             </ul>
        </div>
        <div>
@@ -18,7 +18,7 @@
                 <th>OPCIONES</th>
             </thead>
             <tbody>
-            @foreach($usuarios as $item)
+            @foreach($empleados as $item)
                 <tr>
                     <td>{{$item->name . " " . $item->lastname}}</td>
                     <td>{{$item->email}}</td>
@@ -43,8 +43,8 @@
                     @elseif($item->status == 2)
                     <td>Suspension</td>
                     @endif
-                    <td><a id="editemp" href="{{route('usuarios.edit', $item->id)}}">EDITAR</a>
-                <form method="post" action="{{route('usuarios.destroy',$item->id)}}">
+                    <td><a id="editemp" href="{{route('empleados.edit', $item->id)}}">EDITAR</a>
+                <form method="post" action="{{route('empleados.destroy',$item->id)}}">
                     @method('delete')
                     @csrf
                     <button type="submit" id="deleteemp">BORRAR</button>

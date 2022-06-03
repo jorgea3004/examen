@@ -1,7 +1,7 @@
 @extends('layouts.plantilla')
 @section('title', 'Home')
 @section('content')
-       <h1>Bienvenido al Club</h1>
+       <h1>Bienvenido</h1>
        <div>{{$msg}}</div>
        <div>
               <form action="{{route('home.login')}}" method="POST">

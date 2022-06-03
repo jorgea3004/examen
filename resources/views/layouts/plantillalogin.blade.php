@@ -98,7 +98,7 @@
         <h1>Bienvenido {{session('username')}}</h1>
         <div>
             <ul class="menu">
-                <li><a href="{{route('usuarios.index')}}">Usuarios</a></li>
+                <li><a href="{{route('empleados.index')}}">Usuarios</a></li>
                 <li><a href="{{route('calculosalario.index',0)}}">Calculo Salario</a></li>
             </ul>
         </div>

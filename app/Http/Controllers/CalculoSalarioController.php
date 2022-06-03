@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Users;
+use App\Models\Employees;
 use Illuminate\Http\Request;
 
 class CalculoSalarioController extends Controller
 {
     public function index($calculo){
-        $usuarios = Users::all();
+        $usuarios = Employees::all();
         //echo "string: ".$calculo."";exit();
         switch ($calculo) {
             case 0:
