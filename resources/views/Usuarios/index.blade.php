@@ -2,7 +2,11 @@
 @section('title', 'Listado de Usuarios')
 @section('content')
        <h1>Listado de Usuarios</h1>
-       <div><a href="{{route('usuarios.new')}}">Nuevo</a></div>
+        <div>
+            <ul class="menu" >
+                <li><a href="{{route('usuarios.new')}}">Nuevo</a></li>
+            </ul>
+       </div>
        <div>
         <table>
             <thead>
@@ -39,11 +43,11 @@
                     @elseif($item->status == 2)
                     <td>Suspension</td>
                     @endif
-                    <td><a href="{{route('usuarios.edit', $item->id)}}">EDITAR</a>
+                    <td><a id="editemp" href="{{route('usuarios.edit', $item->id)}}">EDITAR</a>
                 <form method="post" action="{{route('usuarios.destroy',$item->id)}}">
                     @method('delete')
                     @csrf
-                    <button type="submit">BORRAR</button>
+                    <button type="submit" id="deleteemp">BORRAR</button>
                 </form>
             </td>
                 </tr>

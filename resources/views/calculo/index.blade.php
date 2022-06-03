@@ -2,9 +2,13 @@
 @section('title', 'Calculo de salarios')
 @section('content')
        <h1>Calculo de salarios de Usuarios {{$msg}} a {{$mult}} días</h1>
-       <div><a href="{{route('calculosalario.index',0)}}">Semanal</a></div>
-       <div><a href="{{route('calculosalario.index',1)}}">Quincenal</a></div>
-       <div><a href="{{route('calculosalario.index',2)}}">Mensual</a></div>
+        <div>
+            <ul class="menu" >
+                <li><a href="{{route('calculosalario.index',0)}}">Semanal</a></li>
+                <li><a href="{{route('calculosalario.index',1)}}">Quincenal</a></li>
+                <li><a href="{{route('calculosalario.index',2)}}">Mensual</a></li>
+            </ul>
+        </div>
        <div>
         <table>
             <thead>

@@ -4,7 +4,6 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>@yield('title')</title>
-        <script type="text/javascript"></script>
         <style type="text/css">
             div {
                 width: 50%;

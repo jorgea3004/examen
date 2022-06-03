@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>@yield('title')</title>
-        <script type="text/javascript"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <style type="text/css">
             body, div {
                 width: 100%;
@@ -14,7 +14,7 @@
                 height: auto;
                 margin: 0;
             }
-            #menu {
+            .menu {
                 width: 90%;
                 height: auto;
                 margin: 0 10px;
@@ -22,19 +22,27 @@
                 display: inline;
                 float: left;
             }
-            #menu li {
+            .menu li {
                 width: auto;
-                height: 30px;
-                margin: 5px;
-                padding: 5px 10px;
+                height: auto;
                 display: inline;
                 float: left;
-                border: solid 1px #000;
-                border-radius: 5px;
             }
-            #menu li:hover {
+            .menu li:hover {
                 background-color: gray;
                 cursor: pointer;
+            }
+            .menu li a {
+                color: #000;
+                text-decoration: none;
+                border: solid 1px #000;
+                border-radius: 5px;
+                margin: 5px;
+                padding: 10px;
+                width: auto;
+                height: auto;
+                display: inline;
+                float: left;
             }
             table, thead, tbody, tr {
                 width: 100%;
@@ -49,7 +57,7 @@
                 width: 16%;
                 height: auto;
                 margin: 0;
-                padding: 0 0 0 5px;
+                padding: 5px 0 5px 5px;
                 display: inline;
                 float: left;
                 position: relative;
@@ -89,11 +97,25 @@
     <body class="antialiased">
         <h1>Bienvenido {{session('username')}}</h1>
         <div>
-            <ul id="menu">
+            <ul class="menu">
                 <li><a href="{{route('usuarios.index')}}">Usuarios</a></li>
                 <li><a href="{{route('calculosalario.index',0)}}">Calculo Salario</a></li>
             </ul>
         </div>
        @yield('content')
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $( "#editemp" ).click(function() {
+                    if(!confirm("Continuar para editar el Empleado")){
+                        return false;
+                    }
+                });
+                $( "#deleteemp" ).click(function() {
+                    if(!confirm("Continuar para borrar el Empleado")){
+                        return false;
+                    }
+                });
+            });
+        </script>
     </body>
 </html>
