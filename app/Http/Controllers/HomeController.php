@@ -11,7 +11,9 @@ class HomeController extends Controller
         return redirect()->route('home.index');
     }
     
-    public function index($msg=''){
+    public function index(){
+        $msg=session('msg');
+        session()->forget('msg');
         return view('inicial', compact('msg'));
     }
 
@@ -25,9 +27,12 @@ class HomeController extends Controller
         //var_dump($usuarios);exit();
         $msg='';
         if ($usuarios===NULL) {
-            $msg='Usuario o password no validos.';
-            return redirect()->route('home.index', compact('msg') );
+            //$msg='Usuario o password no validos.';
+            session()->forget('msg');
+            session(['msg' => 'Usuario o password no validos.']);
+            return redirect()->route('home.index');
         } else {
+            session(['username' => $usuarios->name . " " . $usuarios->lastname]);
             return redirect()->route('usuarios.index');
         }
         

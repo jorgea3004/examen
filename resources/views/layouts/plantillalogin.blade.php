@@ -6,8 +6,16 @@
         <title>@yield('title')</title>
         <script type="text/javascript"></script>
         <style type="text/css">
-            #menu {
+            body, div {
                 width: 100%;
+                display: inline;
+                float: left;
+                position: relative;
+                height: auto;
+                margin: 0;
+            }
+            #menu {
+                width: 90%;
                 height: auto;
                 margin: 0 10px;
                 padding: 0;
@@ -28,48 +36,64 @@
                 background-color: gray;
                 cursor: pointer;
             }
-            .listado {
-                width: 100%;
-                height: auto;
-                margin: 0 10px;
-                padding: 0;
-                display: inline;
-                float: left;
-            }
-            .listado li {
+            table, thead, tbody, tr {
                 width: 100%;
                 height: auto;
                 margin: 0;
                 padding: 0;
                 display: inline;
                 float: left;
+                position: relative;
             }
-            .listado li ul li, #ulheaders li {
-                width: 15%;
-                height: 30px;
+            table tr th, table tr td {
+                width: 16%;
+                height: auto;
                 margin: 0;
-                padding: 5px 10px;
+                padding: 0 0 0 5px;
                 display: inline;
                 float: left;
+                position: relative;
+            }
+            table tbody tr {
+                border: solid 1px #000;
+            }
+            table tbody tr:hover {
+                background-color: gray;
+                cursor: pointer;
+            }
+            table tr td a, table tr td form {
+                width: auto;
+                height: auto;
+                padding: 0;
+                display: inline;
+                float: left;
+                position: relative;
+            }
+            table tr td form {
+                margin: 0 5px 0 0;
+            }
+            table tr td a, table tr td form button {
+                color: #000;
+                text-decoration: none;
                 border: solid 1px #000;
                 border-radius: 5px;
+                margin: 5px;
+                padding: 5px;
             }
-            #ulcontent li {
-                border: 0;
-            }
-            .listado li ul li a, .listado li ul li form {
-                width: auto;
-                display: inline;
-                float: left;
-                margin-left: 5px;
+            table tr td a:hover, table tr td form button:hover {
+                background-color: #fff;
+                cursor: pointer;
             }
         </style>
     </head>
     <body class="antialiased">
-        <ul id="menu">
-            <li><a href="{{route('usuarios.index')}}">Usuarios</a></li>
-            <li><a href="{{route('calculosalario.index',0)}}">Calculo Salario</a></li>
-        </ul>
+        <h1>Bienvenido {{session('username')}}</h1>
+        <div>
+            <ul id="menu">
+                <li><a href="{{route('usuarios.index')}}">Usuarios</a></li>
+                <li><a href="{{route('calculosalario.index',0)}}">Calculo Salario</a></li>
+            </ul>
+        </div>
        @yield('content')
     </body>
 </html>
